@@ -1,3 +1,8 @@
+# Copyright (C) 2026 Stormy-RPG
+# SPDX-License-Identifier: AGPL-3.0-only
+# Project
+test.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
