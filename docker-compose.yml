@@ -1,0 +1,23 @@
+# Copyright (C) 2026 Stormy-RPG
+# SPDX-License-Identifier: AGPL-3.0-only
+version: '3.8'
+
+services:
+  telegram-mail-bot:
+    container_name: telegram-mail-bot
+    restart: unless-stopped
+    command: "-mode production"
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "4022:4022"
+    networks:
+      - telegram-mail-bot-network
+    volumes:
+      - ./logs:/app/logs
+
+networks:
+  telegram-mail-bot-network:
+    driver: bridge
