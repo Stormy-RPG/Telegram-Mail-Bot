@@ -1,0 +1,12 @@
+{
+    "new_email": "📧 *New Email!*\n\n*From:* $sender\n*Subject:* $subject\n\n$message$ellipsis",
+    "processing_error": "❌ Error processing request!",
+    "fetch_error": "❌ Failed to fetch email!",
+    "fetch_file_error": "❌ Failed to fetch file: `$filename`",
+    "mail_status_active": "✅ Email monitoring is active\nGroup: $group_id\nCheck interval: $check_interval seconds",
+    "mail_status_inactive": "❌ Email monitoring is stopped\nGroup: $group_id\nCheck interval: $check_interval seconds",
+    "mail_service_not_initialized": "❌ Mail forwarding service is not initialized",
+    "mail_check_started": "🔍 Checking for new emails...",
+    "mail_check_completed": "✅ Email check completed",
+    "mail_check_error": "❌ Error during email check"
+}
