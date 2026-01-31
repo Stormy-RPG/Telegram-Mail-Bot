@@ -21,7 +21,7 @@ from dotenv import load_dotenv, dotenv_values
 
 
 from aiogram import Router
-from aiogram.types import FSInputFile, Message, BufferedInputFile, InputMediaDocument, InputMediaPhoto
+from aiogram.types import FSInputFile, Message, BufferedInputFile, InputMediaPhoto
 from aiogram.filters import Command
 
 from utils.templates import MessageTemplate
