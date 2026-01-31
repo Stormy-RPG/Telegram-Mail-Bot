@@ -38,7 +38,7 @@ if find_env:
     
     missing_keys = [key for key in ["DEVELOPMENT_TELEGRAM_API_TOKEN", "PRODUCTION_TELEGRAM_API_TOKEN"] if not env_dict.get(key)]
     if missing_keys:
-        print(f"The following keys are missing from the .env file: {', '.join(missing_keys)}")
+        print(f"Missing required environment variables: {', '.join(missing_keys)}")
         sys.exit()
 else:
     print("\".env\" file not found.")
