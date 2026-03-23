@@ -352,6 +352,13 @@ class MailForwarder:
             parse_mode='Markdown',
             **send_params
         )
+        
+        # Pin message if requested
+        if pin and sent_message:
+            try:
+                await sent_message.pin()
+            except Exception:
+                self.bot.audit.warning("Could not pin message")
 
         if all_files:
             # Separate files into images and other types
@@ -386,12 +393,6 @@ class MailForwarder:
                 if other_files.index(file_info) < len(other_files) - 1:
                     await asyncio.sleep(2)
 
-        # Pin message if requested
-        if pin and sent_message:
-            try:
-                await sent_message.pin()
-            except Exception:
-                self.bot.audit.warning("Could not pin message")
 
 
     async def process_email(self, msg: "MailMessage") -> None:
@@ -425,7 +426,7 @@ class MailForwarder:
 
             filenames = [d["filename"] for d in attachments] + [d["filename"] for d in temp_files]
             self.bot.audit.info("\n".join(filenames))
-            
+
             await self.send_to_telegram(message_text, attachments, temp_files, pin=True)
                     
         except Exception as e:
