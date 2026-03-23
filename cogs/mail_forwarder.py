@@ -377,7 +377,7 @@ class MailForwarder:
                         file_obj = BufferedInputFile(file_info['content'], file_info['filename']) if file_info.get('in_memory', True) else FSInputFile(file_info['temp_path'], file_info['filename'])
                         media.append(InputMediaPhoto(media=file_obj))
                     
-                    await self.bot.send_media_group(media=media, request_timeout=999999, **send_params)
+                    await self.bot.send_media_group(media=media, **send_params)
                     
                     # Add delay between groups if not the last group
                     if i + MAX_GROUP_SIZE < len(images):
@@ -387,7 +387,7 @@ class MailForwarder:
             for file_info in other_files:
                 file_obj = BufferedInputFile(file_info['content'], file_info['filename']) if file_info.get('in_memory', True) else FSInputFile(file_info['temp_path'], file_info['filename'])
                 
-                await self.bot.send_document(document=file_obj, parse_mode='Markdown', request_timeout=999999, **send_params)
+                await self.bot.send_document(document=file_obj, parse_mode='Markdown', **send_params)
                 
                 # Add delay between document sends
                 if other_files.index(file_info) < len(other_files) - 1:
