@@ -422,6 +422,9 @@ class MailForwarder:
                 message=msg_escaped,
                 ellipsis=ellipsis
             )
+
+            filenames = [d["filename"] for d in attachments] + [d["filename"] for d in temp_files]
+            self.bot.audit.info("\n".join(filenames))
             
             await self.send_to_telegram(message_text, attachments, temp_files, pin=True)
                     
